@@ -46,7 +46,7 @@ func (t *Todos) Delete(index int) error {
 		return errors.New("invalid index")
 	}
 
-	*t = append(ls[:index-1], ls[:index]...)
+	*t = append(ls[:index-1], ls[index:]...)
 
 	return nil
 }
