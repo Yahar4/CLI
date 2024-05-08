@@ -3,6 +3,7 @@ package CLI
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"os"
 	"time"
 )
@@ -68,6 +69,13 @@ func (t *Todos) Load(filename string) error {
 	}
 
 	return nil
+}
+
+func (t *Todos) Print() {
+	for i, item := range *t {
+		i++
+		fmt.Printf("%d - %s\n", i, item.Task)
+	}
 }
 
 func (t *Todos) Store(filename string) error {
